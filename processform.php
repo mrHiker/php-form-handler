@@ -1,8 +1,7 @@
 <?php
 // error_reporting(E_ALL);
 // ini_set('display_errors', 1);
-ini_set('include_path', '......./PHPMailer');
-require_once('PHPMailerAutoload.php');
+require 'PHPMailer/PHPMailerAutoload.php';
 
 $fromEmail = 'from@email333.com';
 $toEmail = 'to@email333.com';
@@ -45,7 +44,7 @@ function prepareFields(){
 	// 'Форма на сайте' => isset($_POST['form_name'])  ? trim( htmlspecialchars($_POST['form_name']), 100)  : '',
 	'IP' => isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '',
 	'Город' => !empty($ipinfo->city->__toString()) ? $ipinfo->city->__toString() : '',
-  	'Источник перехода' => isset($_COOKIE['_referrer']) ? $_COOKIE['_referrer'] : $_SERVER['HTTP_REFERER'],
+  	'Источник перехода' => isset($_COOKIE['_referrer']) ? $_COOKIE['_referrer'] : '',
 	// 'utm_source' => isset($_COOKIE['utm_source'])  ? trim( htmlspecialchars($_COOKIE['utm_source']), 50)  : '',
 	// 'utm_keyword' =>isset($_COOKIE['utm_keyword'])  ? trim( htmlspecialchars( rawurldecode($_COOKIE['utm_keyword']) ) , 200)  : '',
 	);
